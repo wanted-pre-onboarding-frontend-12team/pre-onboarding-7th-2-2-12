@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { DashBoard, ADManagement, NotFound } from '../pages';
-import ROUTE_PATHS from './routePath';
-import { isValidArray } from '../utils/ArrayUtils';
+import { DashBoard, ADManagement, NotFound } from '@src/pages';
+import ROUTE_PATHS from '@src/router/routePath';
+import { isValidArray } from '@src/utils/ArrayUtils';
 
 const routes = [
 	{
