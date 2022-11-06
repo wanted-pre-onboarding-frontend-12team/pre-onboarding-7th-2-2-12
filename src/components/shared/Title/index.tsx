@@ -13,7 +13,7 @@ const Title = ({ path }: Props) => {
 	return (
 		<S.TitleWrap>
 			<S.Title>{title[path]}</S.Title>
-			{path === 'manager' ? <S.SelectDate>2021년 11월 11일~2021년 11월 16일 ∧</S.SelectDate> : null}
+			{path === 'dash' ? <S.SelectDate>2021년 11월 11일~2021년 11월 16일 ∧</S.SelectDate> : null}
 		</S.TitleWrap>
 	);
 };
