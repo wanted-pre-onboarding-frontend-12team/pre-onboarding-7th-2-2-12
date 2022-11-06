@@ -5,16 +5,15 @@ import Card from '../Card';
 import * as S from './styled';
 
 const CardList = () => {
-	const [data, setData] = useState<AdProgress[] | undefined>([]);
+	const [data, setData] = useState<AdProgress[]>([]);
 
 	useEffect(() => {
-		getADProgress
-			.then((response: AdProgress[] | unknown) => {
+		setTimeout(() => {
+			let response = getADProgress() as AdProgress[];
+			if (response) {
 				setData(response);
-			})
-			.catch((error) => {
-				throw new Error(error);
-			});
+			}
+		}, 0);
 	}, []);
 
 	return (

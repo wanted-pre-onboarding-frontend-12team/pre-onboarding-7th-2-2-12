@@ -1,18 +1,11 @@
+import { Layout, Button, CardList } from '@src/components';
 import * as S from './styled';
-import SideBar from '@src/components/layout/SideBar';
-import Header from '@src/components/layout/Header';
-import Title from '@src/components/shared/Title';
-import CardList from '@src/components/feature/CardList';
-import Button from '@src/components/shared/Button';
 
 const ADManagement = () => {
 	return (
-		<S.ADManagementWrap>
-			<SideBar />
-			<S.LayoutFlex>
-				<Header />
-				<Title path="manager" />
-				<S.Wrapper>
+		<Layout>
+			<S.Container>
+				<S.InnerContainer>
 					<S.Header>
 						<Button type={'button'} theme={'basic'}>
 							<S.Font>전체 광고</S.Font>
@@ -21,13 +14,12 @@ const ADManagement = () => {
 							<S.Font>광고 만들기</S.Font>
 						</Button>
 					</S.Header>
-					<S.Space height={40} />
-					<S.Content>
+					<section>
 						<CardList />
-					</S.Content>
-				</S.Wrapper>
-			</S.LayoutFlex>
-		</S.ADManagementWrap>
+					</section>
+				</S.InnerContainer>
+			</S.Container>
+		</Layout>
 	);
 };
 

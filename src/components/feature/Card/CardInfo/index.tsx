@@ -3,10 +3,10 @@ import * as S from './styled';
 
 type Props = {
 	infoName: string;
-	info: string;
+	info: string | number;
 	name?: string;
 	editMode: boolean;
-	type?: 'text' | 'date';
+	type?: 'text' | 'date' | 'number';
 };
 
 const CardInfo = ({ infoName, info, name, editMode, type = 'text' }: Props) => {

@@ -23,5 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# node_modules
+/node_modules
+
 # eslint
 .eslintcache
+
+# env
+.env

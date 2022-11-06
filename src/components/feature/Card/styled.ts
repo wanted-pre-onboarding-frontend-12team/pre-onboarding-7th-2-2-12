@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.form`
+export const Container = styled.li`
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	border-radius: 10px;
-	width: 305px;
 	padding: 0 20px;
+`;
+
+export const CardForm = styled.form`
+	padding: 40px 0 20px 0;
 `;
 
 export const Font = styled.span`
@@ -50,9 +53,36 @@ export const InputButton = styled.input`
 	padding: 12px 20px;
 	margin-left: 10px;
 	background-color: ${({ theme }) => theme.colors.white};
-	color: ${({ theme }) => theme.colors.black};
+	color: ${({ theme }) => theme.colors.primary};
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	border-radius: 10px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	cursor: pointer;
+`;
+
+export const ButtonWrapper = styled.div`
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-evenly;
+`;
+
+type Props = {
+	editMode: boolean;
+};
+
+export const BlockWrapper = styled.div<Props>`
+	display: flex;
+	align-items: center;
+	height: 40px;
+`;
+
+export const Title = styled.div`
+	margin-bottom: 40px;
+`;
+
+export const TitleFont = styled.span`
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 19px;
