@@ -1,24 +1,20 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.article`
+export const Container = styled.section`
+	padding: 30px 0;
+`;
+
+export const InnerContainer = styled.div`
 	padding: 40px;
+	border-radius: 20px;
+	background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
+	padding-bottom: 40px;
 `;
-
-type Prop = {
-	height: number;
-};
-
-export const Space = styled.div<Prop>`
-	width: 100%;
-	height: ${({ height }) => `${height}px`};
-`;
-
-export const Content = styled.section``;
 
 export const Font = styled.span`
 	font-style: normal;

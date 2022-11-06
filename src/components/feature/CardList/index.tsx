@@ -6,6 +6,9 @@ const CardList = () => {
 	return (
 		<S.Wrapper>
 			<Card />
+			<Card />
+			<Card />
+			<Card />
 		</S.Wrapper>
 	);
 };

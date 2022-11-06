@@ -1,5 +1,7 @@
+import { Layout } from '@src/components';
+
 const DashBoard = () => {
-	return <div>DashBoard Page</div>;
+	return <Layout>컨텐츠 영역</Layout>;
 };
 
 export default DashBoard;
