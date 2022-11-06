@@ -1,10 +1,7 @@
-export const getLocalStorage = (key: string) => {
+export const getLocalStorage = (key: string, defaultValue?: any) => {
 	try {
 		const serializedValue = localStorage.getItem(key);
-		if (!serializedValue) throw new Error(`Not exist key in Storage : ${key}`);
-
-		const deSerializedValue = JSON.parse(serializedValue);
-		return deSerializedValue;
+		return serializedValue ? JSON.parse(serializedValue) : defaultValue;
 	} catch (error) {
 		// 에러 핸들링
 	}
