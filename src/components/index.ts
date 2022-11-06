@@ -12,6 +12,6 @@ export { default as Layout } from '@src/components/layout';
 
 // feature components
 export { default as Card } from '@src/components/feature/Card';
-export { default as CardInfo } from '@src/components/feature/CardInfo';
+export { default as CardInfo } from '@src/components/feature/Card/CardInfo';
 export { default as CardList } from '@src/components/feature/CardList';
-export { default as CardTitle } from '@src/components/feature/CardTitle';
+export { default as CardTitle } from '@src/components/feature/Card/CardTitle';
