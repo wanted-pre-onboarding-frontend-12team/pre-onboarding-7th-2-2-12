@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-export const DashBoardWrap = styled.div`
+export const GlobalContainer = styled.div`
 	display: flex;
 	background-color: ${({ theme }) => theme.colors.gray[100]};
 `;
-export const LayoutFlex = styled.div`
-	width: 100%;
-	padding: 0 20px;
+
+export const ContentContainer = styled.main`
+	flex: 1;
+	padding: 0 40px;
 `;
