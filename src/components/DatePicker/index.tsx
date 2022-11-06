@@ -1,33 +1,36 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { MyDatePicker, DatePickerWrap } from './styled';
-import { dateToString } from '@src/utils/DateUtils';
+import * as S from './styled';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { ko } from 'date-fns/esm/locale';
-import { setLocalStorage } from '@src/utils/StorageUtils';
+import { setLocalStorage, getLocalStorage } from '@src/utils/StorageUtils';
 
 type Props = {
 	setDaily: Dispatch<SetStateAction<boolean>>;
 };
-
 const DatePickers = ({ setDaily }: Props) => {
-	const [startDate, setStartDate] = useState(new Date('2022-04-20'));
-	const [endDate, setEndDate] = useState(new Date('2022-04-20'));
-	const startDateString = dateToString(startDate);
-	const endDateString = dateToString(endDate);
+	const startDate = new Date(getLocalStorage('FilterDate').startDate);
+	const endDate = new Date(getLocalStorage('FilterDate').endDate);
+	const [subStartDate, setSubStartDate] = useState(startDate);
+	const [subEndDateStr, setSubEndDateStr] = useState(endDate);
+	const isChanged = startDate.toString() !== subStartDate.toString() || endDate.toString() !== subEndDateStr.toString();
 
-	useEffect(() => {
-		setLocalStorage('FilterDate', { startDate: startDateString, endDate: endDateString });
+	const changeDate = () => {
 		setDaily((prev) => !prev);
-	}, [startDate, endDate]);
+		setLocalStorage('FilterDate', { startDate: subStartDate.toString(), endDate: subEndDateStr.toString() });
+	};
+	const initDate = () => {
+		setSubStartDate(startDate);
+		setSubEndDateStr(endDate);
+	};
 
 	return (
-		<DatePickerWrap>
+		<S.DatePickerWrap>
 			<div className="calender-box">
 				<div className="date">시작날짜</div>
 				<div>
-					<MyDatePicker
-						selected={startDate}
+					<S.MyDatePicker
+						selected={subStartDate}
 						dateFormat="yyyy-MM-dd"
-						onChange={(date: Date) => setStartDate(date)}
+						onChange={(date: Date) => setSubStartDate(date)}
 						locale={ko}
 						maxDate={endDate}
 					/>
@@ -36,16 +39,22 @@ const DatePickers = ({ setDaily }: Props) => {
 			<div className="calender-box">
 				<div className="date">종료날짜</div>
 				<div>
-					<MyDatePicker
-						selected={endDate}
-						dateFormat="yyyy-MM-dd" // 날짜 형식
-						onChange={(date: Date) => setEndDate(date)}
+					<S.MyDatePicker
+						selected={subEndDateStr}
+						dateFormat="yyyy-MM-dd"
+						onChange={(date: Date) => setSubEndDateStr(date)}
 						locale={ko}
 						minDate={startDate}
 					/>
 				</div>
 			</div>
-		</DatePickerWrap>
+			<S.CancelBtn onClick={initDate} disabled={!isChanged}>
+				취소
+			</S.CancelBtn>
+			<S.CheckBtn onClick={changeDate} disabled={!isChanged}>
+				확인
+			</S.CheckBtn>
+		</S.DatePickerWrap>
 	);
 };
 

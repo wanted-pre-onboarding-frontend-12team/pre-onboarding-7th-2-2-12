@@ -12,7 +12,7 @@ const Title = () => {
 	return (
 		<S.TitleWrap>
 			<S.Title>{titleTable[locator.pathname]}</S.Title>
-			{locator.pathname === '/' ? <S.SelectDate>2021년 11월 11일~2021년 11월 16일 ∧</S.SelectDate> : null}
+			{locator.pathname === '/' ? null : null}
 		</S.TitleWrap>
 	);
 };
