@@ -14,11 +14,11 @@ const ADManagement = () => {
 			<S.Container>
 				<S.InnerContainer>
 					<S.Header>
-						<select id="status" name="status" onChange={handleDropBox} defaultValue="all">
+						<S.Select id="status" name="status" onChange={handleDropBox} defaultValue="all">
 							<option value="all">전체 광고</option>
 							<option value="active">진행중</option>
 							<option value="ended">중단됨</option>
-						</select>
+						</S.Select>
 						<Button type={'button'} theme={'main'}>
 							<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'} color={theme.colors.white}>
 								광고 만들기

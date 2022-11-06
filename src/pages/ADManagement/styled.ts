@@ -15,3 +15,10 @@ export const Header = styled.header`
 	justify-content: space-between;
 	padding-bottom: 40px;
 `;
+
+export const Select = styled.select`
+	font-size: 14px;
+	padding: 0 20px;
+	border-radius: 10px;
+	color: ${({ theme }) => theme.colors.black};
+`;
