@@ -5,6 +5,8 @@ import { AdProgress } from '@src/types/advertise';
 import { dateToString } from '@src/utils/DateUtils';
 import Typography from '@src/components/shared/Typography';
 import { theme } from '@src/styles';
+import { moneyExpressionConverter } from '@src/utils/NumberUtils';
+
 
 type Props = {
 	item: AdProgress;
@@ -97,7 +99,7 @@ const Card = ({ item, data, setData }: Props) => {
 						<input type="number" ref={budgetRef} defaultValue={item.budget}></input>
 					) : (
 						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
-							{item.budget}원
+							{moneyExpressionConverter(item.budget)}
 						</Typography>
 					)}
 				</S.BlockWrapper>
@@ -119,7 +121,7 @@ const Card = ({ item, data, setData }: Props) => {
 						<input type="number" name={'convValue'} ref={convValueRef} defaultValue={item.report.convValue}></input>
 					) : (
 						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
-							{item.report.convValue}원
+							{moneyExpressionConverter(item.report.convValue)}
 						</Typography>
 					)}
 				</S.BlockWrapper>
@@ -130,8 +132,9 @@ const Card = ({ item, data, setData }: Props) => {
 						<input type="number" name={'cost'} ref={costRef} defaultValue={item.report.cost}></input>
 					) : (
 						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
-							{item.report.cost}원
+							{moneyExpressionConverter(item.report.cost)}
 						</Typography>
+
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
