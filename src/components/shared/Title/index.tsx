@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import * as S from './styled';
+import DateView from '../DateView';
 
 const titleTable: { [key: string]: string } = {
 	'/': '대시보드',
@@ -12,7 +13,7 @@ const Title = () => {
 	return (
 		<S.TitleWrap>
 			<S.Title>{titleTable[locator.pathname]}</S.Title>
-			{locator.pathname === '/' ? <S.SelectDate>2021년 11월 11일~2021년 11월 16일 ∧</S.SelectDate> : null}
+			{locator.pathname === '/' && <DateView />}
 		</S.TitleWrap>
 	);
 };

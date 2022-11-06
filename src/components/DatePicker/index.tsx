@@ -1,28 +1,33 @@
-import { useState, useEffect } from 'react';
-import { MyDatePicker, DatePickerWrap } from './styled';
-import { dateToString } from '@src/utils/DateUtils';
+import { useState } from 'react';
+import * as S from './styled';
 import { ko } from 'date-fns/esm/locale';
-import { setLocalStorage } from '@src/utils/StorageUtils';
+import { setLocalStorage, getLocalStorage } from '@src/utils/StorageUtils';
 
-const DatePickers = () => {
-	const [startDate, setStartDate] = useState(new Date());
-	const [endDate, setEndDate] = useState(new Date());
-	const startDateString = dateToString(startDate);
-	const endDateString = dateToString(endDate);
+const DatePickers = ({ setIsSetDate }: any) => {
+	const startDate = new Date(getLocalStorage('FilterDate').startDate);
+	const endDate = new Date(getLocalStorage('FilterDate').endDate);
+	const [subStartDate, setSubStartDate] = useState(startDate);
+	const [subEndDateStr, setSubEndDateStr] = useState(endDate);
 
-	useEffect(() => {
-		setLocalStorage('FilterDate', { startDate: startDateString, endDate: endDateString });
-	}, [startDate, endDate]);
+	const changeDate = () => {
+		setLocalStorage('FilterDate', { startDate: subStartDate.toString(), endDate: subEndDateStr.toString() });
+		setIsSetDate(false);
+	};
+	const initDate = () => {
+		setSubStartDate(startDate);
+		setSubEndDateStr(endDate);
+		setIsSetDate(false);
+	};
 
 	return (
-		<DatePickerWrap>
+		<S.DatePickerWrap>
 			<div className="calender-box">
 				<div className="date">시작날짜</div>
 				<div>
-					<MyDatePicker
-						selected={startDate}
+					<S.MyDatePicker
+						selected={subStartDate}
 						dateFormat="yyyy-MM-dd"
-						onChange={(date: Date) => setStartDate(date)}
+						onChange={(date: Date) => setSubStartDate(date)}
 						locale={ko}
 						maxDate={endDate}
 					/>
@@ -31,16 +36,18 @@ const DatePickers = () => {
 			<div className="calender-box">
 				<div className="date">종료날짜</div>
 				<div>
-					<MyDatePicker
-						selected={endDate}
-						dateFormat="yyyy-MM-dd" // 날짜 형식
-						onChange={(date: Date) => setEndDate(date)}
+					<S.MyDatePicker
+						selected={subEndDateStr}
+						dateFormat="yyyy-MM-dd"
+						onChange={(date: Date) => setSubEndDateStr(date)}
 						locale={ko}
 						minDate={startDate}
 					/>
 				</div>
 			</div>
-		</DatePickerWrap>
+			<S.CancelBtn onClick={initDate}>취소</S.CancelBtn>
+			<S.CheckBtn onClick={changeDate}>확인</S.CheckBtn>
+		</S.DatePickerWrap>
 	);
 };
 
