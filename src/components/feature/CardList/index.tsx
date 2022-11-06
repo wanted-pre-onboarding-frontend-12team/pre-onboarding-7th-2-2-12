@@ -4,17 +4,27 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Card';
 import * as S from './styled';
 
-const CardList = () => {
+type Props = {
+	status: string;
+};
+
+const CardList = ({ status }: Props) => {
 	const [data, setData] = useState<AdProgress[]>([]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			let response = getADProgress() as AdProgress[];
-			if (response) {
+			if (status === 'active') {
+				response = response.filter((item: AdProgress) => item.status === 'active');
+				setData(response);
+			} else if (status === 'ended') {
+				response = response.filter((item: AdProgress) => item.status === 'ended');
+				setData(response);
+			} else {
 				setData(response);
 			}
 		}, 0);
-	}, []);
+	}, [status]);
 
 	return (
 		<S.Wrapper>
