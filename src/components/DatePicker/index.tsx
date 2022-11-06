@@ -1,17 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { MyDatePicker, DatePickerWrap } from './styled';
 import { dateToString } from '@src/utils/DateUtils';
 import { ko } from 'date-fns/esm/locale';
 import { setLocalStorage } from '@src/utils/StorageUtils';
 
-const DatePickers = () => {
-	const [startDate, setStartDate] = useState(new Date());
-	const [endDate, setEndDate] = useState(new Date());
+type Props = {
+	setDaily: Dispatch<SetStateAction<boolean>>;
+};
+
+const DatePickers = ({ setDaily }: Props) => {
+	const [startDate, setStartDate] = useState(new Date('2022-04-20'));
+	const [endDate, setEndDate] = useState(new Date('2022-04-20'));
 	const startDateString = dateToString(startDate);
 	const endDateString = dateToString(endDate);
 
 	useEffect(() => {
 		setLocalStorage('FilterDate', { startDate: startDateString, endDate: endDateString });
+		setDaily((prev) => !prev);
 	}, [startDate, endDate]);
 
 	return (
