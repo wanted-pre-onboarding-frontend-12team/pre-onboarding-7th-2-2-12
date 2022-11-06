@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.form`
+export const Container = styled.li`
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	border-radius: 10px;
-	width: 305px;
 	padding: 0 20px;
+`;
+
+export const CardForm = styled.form`
+	padding: 40px 0 20px 0;
 `;
 
 export const Font = styled.span`
@@ -44,4 +47,6 @@ export const Divider = styled.div`
 	background-color: ${({ theme }) => theme.colors.gray[200]};
 `;
 
-export const Action = styled.section``;
+export const ButtonWrapper = styled.div`
+	margin-top: 20px;
+`;

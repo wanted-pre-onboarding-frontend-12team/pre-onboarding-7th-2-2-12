@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.div`
-	height: 19px;
+	margin-bottom: 40px;
 `;
 
 export const Font = styled.span`
