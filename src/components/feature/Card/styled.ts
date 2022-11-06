@@ -47,6 +47,44 @@ export const Divider = styled.div`
 	background-color: ${({ theme }) => theme.colors.gray[200]};
 `;
 
+export const Action = styled.section``;
+
+export const InputButton = styled.input`
+	padding: 12px 20px;
+	margin-left: 10px;
+	background-color: ${({ theme }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors.primary};
+	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	cursor: pointer;
+`;
+
 export const ButtonWrapper = styled.div`
 	margin-top: 20px;
+	display: flex;
+	justify-content: space-evenly;
+`;
+
+type Props = {
+	editMode: boolean;
+};
+
+export const BlockWrapper = styled.div<Props>`
+	display: flex;
+	align-items: center;
+	height: 40px;
+`;
+
+export const Title = styled.div`
+	margin-bottom: 40px;
+`;
+
+export const TitleFont = styled.span`
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	color: ${({ theme }) => theme.colors.black};
 `;
