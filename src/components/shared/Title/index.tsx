@@ -1,7 +1,11 @@
 import * as S from './styled';
 
-const Title = ({ path }) => {
-	const title = {
+type Props = {
+	path: string;
+};
+
+const Title = ({ path }: Props) => {
+	const title: any = {
 		dash: '대시보드',
 		manager: '광고관리',
 	};

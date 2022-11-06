@@ -24,6 +24,7 @@ export const BulbIconWrap = styled.div`
 export const BulbIcon = styled.img``;
 
 export const GuideTextWrap = styled.div``;
+
 export const GuideTitle = styled.p`
 	padding-bottom: 8px;
 	color: ${({ theme }) => theme.colors.black};
@@ -35,15 +36,9 @@ export const GuideLink = styled.p`
 	font-size: ${({ theme }) => theme.fontSizes.fs12};
 	font-weight: ${({ theme }) => theme.fontWeights.fw500}; ;
 `;
-export const Slogan = styled.p`
+export const Slogan = styled(GuideLink)`
 	padding: 0 20px 10px;
-	color: ${({ theme }) => theme.colors.gray[400]};
-	font-size: ${({ theme }) => theme.fontSizes.fs12};
-	font-weight: ${({ theme }) => theme.fontWeights.fw500};
 `;
-export const Terms = styled.p`
+export const Terms = styled(GuideLink)`
 	padding: 0 20px;
-	color: ${({ theme }) => theme.colors.gray[400]};
-	font-size: ${({ theme }) => theme.fontSizes.fs12};
-	font-weight: ${({ theme }) => theme.fontWeights.fw500};
 `;
