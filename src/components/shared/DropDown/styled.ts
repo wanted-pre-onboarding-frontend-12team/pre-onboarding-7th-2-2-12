@@ -33,12 +33,14 @@ export const DropData = styled.ul<{ isBig?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	position: absolute;
+	z-index: 3;
 	top: ${(props) => (props.isBig ? '60px' : '40px')};
 	width: 100%;
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	font-weight: ${(props) => (props.isBig ? '700' : '500')};
 	border-radius: 10px;
 	cursor: pointer;
+	background-color: ${({ theme }) => theme.colors.white};
 	.data-list {
 		display: flex;
 		align-items: center;
