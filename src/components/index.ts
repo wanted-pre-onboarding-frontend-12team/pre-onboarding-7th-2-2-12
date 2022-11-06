@@ -4,6 +4,7 @@ export { default as Button } from '@src/components/shared/Button';
 export { default as Title } from '@src/components/shared/Title';
 export { default as MenuTab } from '@src/components/shared/MenuTab';
 export { default as Guide } from '@src/components/shared/Guide';
+export { default as Select } from '@src/components/shared/Select';
 
 // layout components
 export { default as Header } from '@src/components/layout/Header';
