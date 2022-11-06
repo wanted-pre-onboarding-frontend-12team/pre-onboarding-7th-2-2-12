@@ -3,6 +3,7 @@ import Button from '@src/components/shared/Button';
 import * as S from './styled';
 import { AdProgress } from '@src/types/advertise';
 import { dateToString } from '@src/utils/DateUtils';
+import { moneyExpressionConverter } from '@src/utils/NumberUtils';
 
 type Props = {
 	item: AdProgress;
@@ -92,7 +93,7 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" ref={budgetRef} defaultValue={item.budget}></input>
 					) : (
-						<S.InfoFont>{item.budget}원</S.InfoFont>
+						<S.InfoFont>{moneyExpressionConverter(item.budget)}</S.InfoFont>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -110,7 +111,7 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" name={'convValue'} ref={convValueRef} defaultValue={item.report.convValue}></input>
 					) : (
-						<S.InfoFont>{item.report.convValue}원</S.InfoFont>
+						<S.InfoFont>{moneyExpressionConverter(item.report.convValue)}</S.InfoFont>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -119,7 +120,7 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" name={'cost'} ref={costRef} defaultValue={item.report.cost}></input>
 					) : (
-						<S.InfoFont>{item.report.cost}원</S.InfoFont>
+						<S.InfoFont>{moneyExpressionConverter(item.report.cost)}</S.InfoFont>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
