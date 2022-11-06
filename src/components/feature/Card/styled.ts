@@ -45,3 +45,16 @@ export const Divider = styled.div`
 `;
 
 export const Action = styled.section``;
+
+export const InputButton = styled.input`
+	padding: 12px 20px;
+	margin-left: 10px;
+	background-color: ${({ theme }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors.black};
+	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+	color: ${({ theme }) => theme.colors.black};
+`;
