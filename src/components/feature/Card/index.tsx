@@ -3,7 +3,10 @@ import Button from '@src/components/shared/Button';
 import * as S from './styled';
 import { AdProgress } from '@src/types/advertise';
 import { dateToString } from '@src/utils/DateUtils';
+import Typography from '@src/components/shared/Typography';
+import { theme } from '@src/styles';
 import { moneyExpressionConverter } from '@src/utils/NumberUtils';
+
 
 type Props = {
 	item: AdProgress;
@@ -57,10 +60,10 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input ref={titleRef} name="title" defaultValue={item.title}></input>
 					) : (
-						<S.TitleFont>
+						<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'} color={theme.colors.black}>
 							{item.adType === 'app' ? '앱광고_' : '웹광고_'}
 							{item.title}
-						</S.TitleFont>
+						</Typography>
 					)}
 				</S.Title>
 				<S.Divider />
@@ -72,7 +75,9 @@ const Card = ({ item, data, setData }: Props) => {
 							<option value="ended">중단됨</option>
 						</select>
 					) : (
-						<S.InfoFont>{item.status === 'active' ? '진행중' : '중단됨'}</S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
+							{item.status === 'active' ? '진행중' : '중단됨'}
+						</Typography>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -81,10 +86,10 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="date" ref={startDateRef} defaultValue={dateToString(new Date(item.startDate))}></input>
 					) : (
-						<S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
 							{dateToString(new Date(item.startDate))}
 							{item.endDate ? ` (${dateToString(new Date(item.endDate))})` : ''}
-						</S.InfoFont>
+						</Typography>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -93,7 +98,9 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" ref={budgetRef} defaultValue={item.budget}></input>
 					) : (
-						<S.InfoFont>{moneyExpressionConverter(item.budget)}</S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
+							{moneyExpressionConverter(item.budget)}
+						</Typography>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -102,7 +109,9 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" ref={roasRef} defaultValue={item.report.roas}></input>
 					) : (
-						<S.InfoFont>{item.report.roas}%</S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
+							{item.report.roas}%
+						</Typography>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -111,7 +120,9 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" name={'convValue'} ref={convValueRef} defaultValue={item.report.convValue}></input>
 					) : (
-						<S.InfoFont>{moneyExpressionConverter(item.report.convValue)}</S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
+							{moneyExpressionConverter(item.report.convValue)}
+						</Typography>
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
@@ -120,13 +131,18 @@ const Card = ({ item, data, setData }: Props) => {
 					{editMode ? (
 						<input type="number" name={'cost'} ref={costRef} defaultValue={item.report.cost}></input>
 					) : (
-						<S.InfoFont>{moneyExpressionConverter(item.report.cost)}</S.InfoFont>
+						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
+							{moneyExpressionConverter(item.report.cost)}
+						</Typography>
+
 					)}
 				</S.BlockWrapper>
 				<S.Divider />
 				<S.ButtonWrapper>
 					<Button type={'button'} theme={'basic'} onClick={onEditMode}>
-						<S.Font>{editMode ? '취소' : '수정하기'}</S.Font>
+						<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'}>
+							{editMode ? '취소' : '수정하기'}
+						</Typography>
 					</Button>
 					{editMode && <S.InputButton type="submit" value="수정" />}
 				</S.ButtonWrapper>

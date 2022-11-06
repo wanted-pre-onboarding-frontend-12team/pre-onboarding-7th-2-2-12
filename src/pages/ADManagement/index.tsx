@@ -1,9 +1,11 @@
-import { Layout, Button, CardList } from '@src/components';
+import { Layout, Button, CardList, Typography } from '@src/components';
+import { theme } from '@src/styles';
+import { getLocalStorage } from '@src/utils/StorageUtils';
 import { useState } from 'react';
 import * as S from './styled';
 
 const ADManagement = () => {
-	const [status, setStatus] = useState<string>('');
+	const [status, setStatus] = useState<string>(getLocalStorage('cardStatus') ? getLocalStorage('cardStatus') : '');
 	const handleDropBox = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setStatus(e.target.value);
 	};
@@ -13,13 +15,15 @@ const ADManagement = () => {
 			<S.Container>
 				<S.InnerContainer>
 					<S.Header>
-						<select id="status" name="status" onChange={handleDropBox} defaultValue="all">
+						<S.Select id="status" name="status" onChange={handleDropBox} defaultValue="all" value={status}>
 							<option value="all">전체 광고</option>
 							<option value="active">진행중</option>
 							<option value="ended">중단됨</option>
-						</select>
+						</S.Select>
 						<Button type={'button'} theme={'main'}>
-							<S.Font>광고 만들기</S.Font>
+							<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'} color={theme.colors.white}>
+								광고 만들기
+							</Typography>
 						</Button>
 					</S.Header>
 					<section>

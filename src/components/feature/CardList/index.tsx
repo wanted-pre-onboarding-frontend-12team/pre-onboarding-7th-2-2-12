@@ -1,5 +1,6 @@
 import { getADProgress } from '@src/constants/api';
 import { AdProgress } from '@src/types/advertise';
+import { setLocalStorage } from '@src/utils/StorageUtils';
 import React, { useEffect, useState } from 'react';
 import Card from '../Card';
 import * as S from './styled';
@@ -23,7 +24,8 @@ const CardList = ({ status }: Props) => {
 			} else {
 				setData(response);
 			}
-		}, 0);
+		}, 2000);
+		setLocalStorage('cardStatus', status);
 	}, [status]);
 
 	return (
