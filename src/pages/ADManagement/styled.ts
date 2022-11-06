@@ -1,33 +1,20 @@
 import styled from 'styled-components';
 
-type Prop = {
-	height: number;
-};
-
-export const ADManagementWrap = styled.div`
-	display: flex;
-	background-color: ${({ theme }) => theme.colors.gray[100]};
-`;
-export const LayoutFlex = styled.div`
-	width: 100%;
-	padding: 0 20px;
+export const Container = styled.section`
+	padding: 30px 0;
 `;
 
-export const Wrapper = styled.article`
+export const InnerContainer = styled.div`
 	padding: 40px;
+	border-radius: 20px;
+	background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
+	padding-bottom: 40px;
 `;
-
-export const Space = styled.div<Prop>`
-	width: 100%;
-	height: ${({ height }) => `${height}px`};
-`;
-
-export const Content = styled.section``;
 
 export const Font = styled.span`
 	font-style: normal;
