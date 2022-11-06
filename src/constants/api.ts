@@ -2,7 +2,7 @@ const dummyData = {
 	count: 4,
 	ads: [
 		{
-			id: 1,
+			id: 12345678,
 			adType: 'web',
 			title: '매드업 레버 광고 1234',
 			budget: 500000,
@@ -16,7 +16,7 @@ const dummyData = {
 			},
 		},
 		{
-			id: 2,
+			id: 4532220000,
 			adType: 'web',
 			title: '매드업 레버 광고 12345',
 			budget: 200000,
@@ -30,7 +30,7 @@ const dummyData = {
 			},
 		},
 		{
-			id: 3,
+			id: 45123558,
 			adType: 'web',
 			title: '원티드 레버 광고 1234',
 			budget: 150000,
@@ -44,7 +44,7 @@ const dummyData = {
 			},
 		},
 		{
-			id: 4,
+			id: 15675222,
 			adType: 'app',
 			title: '매드업 앱광고 광고 9912',
 			budget: 240000,
@@ -60,14 +60,6 @@ const dummyData = {
 	],
 };
 
-export const getADProgress = new Promise((resolve, reject) => {
-	if (true) {
-		setTimeout(() => {
-			resolve(dummyData.ads);
-		}, 2000);
-	} else {
-		reject(new Error('not working...'));
-	}
-});
-
-//https://s3.us-west-2.amazonaws.com/secure.notion-static.com/05a1a9db-897f-4e9d-87bd-1e81a03d8e04/wanted_FE_ad-list-data-set.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221105%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221105T064308Z&X-Amz-Expires=86400&X-Amz-Signature=06cf53efffa78bea41fb67dc30da38d9dbcaedce9bccba9071fc494767258a8d&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22wanted_FE_ad-list-data-set.json%22&x-id=GetObject
+export const getADProgress = () => {
+	return dummyData.ads;
+};
