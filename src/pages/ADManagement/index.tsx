@@ -1,4 +1,5 @@
-import { Layout, Button, CardList } from '@src/components';
+import { Layout, Button, CardList, Typography } from '@src/components';
+import { theme } from '@src/styles';
 import { useState } from 'react';
 import * as S from './styled';
 
@@ -19,7 +20,9 @@ const ADManagement = () => {
 							<option value="ended">중단됨</option>
 						</select>
 						<Button type={'button'} theme={'main'}>
-							<S.Font>광고 만들기</S.Font>
+							<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'} color={theme.colors.white}>
+								광고 만들기
+							</Typography>
 						</Button>
 					</S.Header>
 					<section>

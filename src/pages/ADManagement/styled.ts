@@ -15,10 +15,3 @@ export const Header = styled.header`
 	justify-content: space-between;
 	padding-bottom: 40px;
 `;
-
-export const Font = styled.span`
-	font-style: normal;
-	font-weight: 700;
-	font-size: 14px;
-	line-height: 16px;
-`;
