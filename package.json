@@ -22,10 +22,10 @@
 		"styled-reset": "^4.4.2"
 	},
 	"devDependencies": {
-  	"@types/json-server": "^0.14.4",
+		"@types/json-server": "^0.14.4",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.22",
-    "@types/recharts": "^1.8.23",
+		"@types/recharts": "^1.8.23",
 		"@types/react-datepicker": "^4.8.0",
 		"@types/react-dom": "^18.0.7",
 		"@types/styled-components": "^5.1.26",
