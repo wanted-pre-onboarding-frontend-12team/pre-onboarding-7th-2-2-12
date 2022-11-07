@@ -34,17 +34,18 @@ const CardList = ({ status }: Props) => {
 
 	return (
 		<S.Wrapper>
-			{loading && (
+			{loading ? (
 				<>
 					<Skeleton />
 					<Skeleton />
 					<Skeleton />
 				</>
-			)}
-			{data &&
+			) : (
+				data &&
 				data.map((item: AdProgress) => {
 					return <Card key={item.id} item={item} data={data} setData={setData} />;
-				})}
+				})
+			)}
 		</S.Wrapper>
 	);
 };
