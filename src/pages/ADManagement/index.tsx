@@ -1,4 +1,4 @@
-import { Layout, Button, CardList, Typography } from '@src/components';
+import { Layout, Button, CardList, Typography, Select } from '@src/components';
 import { theme } from '@src/styles';
 import { getLocalStorage } from '@src/utils/StorageUtils';
 import { useState } from 'react';
@@ -15,11 +15,21 @@ const ADManagement = () => {
 			<S.Container>
 				<S.InnerContainer>
 					<S.Header>
-						<S.Select id="status" name="status" onChange={handleDropBox} defaultValue="all" value={status}>
-							<option value="all">전체 광고</option>
-							<option value="active">진행중</option>
-							<option value="ended">중단됨</option>
-						</S.Select>
+						<S.SelectWrapper>
+							<Select
+								value={status}
+								padding="12px 20px 12px 20px"
+								arrowPadding="20px"
+								fontSize={theme.fontSizes.fs14}
+								fontWeight={theme.fontWeights.fw500}
+								onChange={handleDropBox}
+							>
+								<option value="all">전체 광고</option>
+								<option value="active">진행중</option>
+								<option value="ended">중단됨</option>
+							</Select>
+						</S.SelectWrapper>
+
 						<Button type={'button'} theme={'main'}>
 							<Typography variant="h2" fontWeight={700} lineHeight={'19px'} fontSize={'16px'} color={theme.colors.white}>
 								광고 만들기
