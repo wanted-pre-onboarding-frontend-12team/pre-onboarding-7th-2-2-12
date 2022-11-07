@@ -6,7 +6,7 @@ export const Container = styled.div<{ isBig?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	margin: 100px;
+	/* margin: 100px; */
 `;
 
 export const SeletedData = styled.button<{ isBig?: boolean }>`
@@ -38,6 +38,7 @@ export const DropData = styled.ul<{ isBig?: boolean }>`
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	font-weight: ${(props) => (props.isBig ? '700' : '500')};
 	border-radius: 10px;
+	background-color: ${({ theme }) => theme.colors.white};
 	cursor: pointer;
 	.data-list {
 		display: flex;

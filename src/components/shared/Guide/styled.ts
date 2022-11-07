@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GuideWrap = styled.div``;
-export const GuideBox = styled.div`
+export const GuideBox = styled.a`
 	display: flex;
 	width: 240px;
 	height: 100px;
@@ -9,6 +9,7 @@ export const GuideBox = styled.div`
 	margin: 40px 0;
 	border-radius: 10px;
 	background: ${({ theme }) => theme.colors.blue[100]};
+	text-decoration: none;
 `;
 
 export const BulbIconWrap = styled.div`
@@ -39,6 +40,9 @@ export const GuideLink = styled.p`
 export const Slogan = styled(GuideLink)`
 	padding: 0 20px 10px;
 `;
-export const Terms = styled(GuideLink)`
+export const Terms = styled.a`
 	padding: 0 20px;
+	color: ${({ theme }) => theme.colors.gray[400]};
+	font-size: ${({ theme }) => theme.fontSizes.fs12};
+	font-weight: ${({ theme }) => theme.fontWeights.fw500}; ;
 `;
