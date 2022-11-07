@@ -1,5 +1,5 @@
-import React, { useState, useRef, PropsWithChildren } from 'react';
-
+import React, { useRef, PropsWithChildren } from 'react';
+import useDropdown from '@src/hooks/useDropdown';
 import UpArrow from '@src/assets/images/UpArrow.svg';
 import bluecircle from '@src/assets/images/bluecircle.svg';
 import greencircle from '@src/assets/images/greencircle.svg';
@@ -11,38 +11,37 @@ type Props = {
 	isAd?: boolean;
 	adColor?: string;
 	isBig?: boolean;
+	isBorder?: boolean;
 	list: ListType[];
+	default: string;
+	name?: string;
+	setState: React.Dispatch<React.SetStateAction<string>>;
 } & PropsWithChildren;
 
 const DropDown = ({ ...props }: Props) => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [clickedData, setClickedData] = useState(props.list[0].value);
 	const clickRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+	const { selectedItem, handleSelectBoxToggle, handleSelectItem, isToggled, setIsToggled } = useDropdown(props.default);
 
-	useOutsideClick(clickRef, setIsOpen);
-
-	const handleClick = (value: string): React.MouseEventHandler<HTMLLIElement> | undefined | void => {
-		setIsOpen(!isOpen);
-		setClickedData(value);
-	};
+	useOutsideClick(clickRef, setIsToggled);
 
 	return (
 		<S.Container isBig={props.isBig} ref={clickRef}>
-			<S.SeletedData
-				isBig={props.isBig}
-				onClick={() => {
-					setIsOpen(!isOpen);
-				}}
-			>
+			<S.SeletedData isBig={props.isBig} isBorder={props.isBorder} onClick={handleSelectBoxToggle}>
 				{props.isAd && (props.adColor === 'blue' ? <img src={bluecircle} /> : <img src={greencircle} />)}
-				<p>{clickedData}</p>
+				<p>{selectedItem}</p>
 				<img className="arrow" src={UpArrow} />
 			</S.SeletedData>
-
-			{isOpen && (
+			{isToggled && (
 				<S.DropData isBig={props.isBig}>
 					{props.list.map((el) => (
-						<li className="data-list" key={el.id} onClick={() => handleClick(el.value)}>
+						<li
+							className="data-list"
+							key={el.value}
+							onClick={() => {
+								handleSelectItem(el.value);
+								props.setState(el.name);
+							}}
+						>
 							{el.value}
 						</li>
 					))}
@@ -58,4 +57,5 @@ DropDown.defaultProps = {
 	isAd: false,
 	adColor: 'blue',
 	isBig: false,
+	isBorder: true,
 };

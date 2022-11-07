@@ -11,13 +11,7 @@ const SideBar = () => {
 				<S.LogoImg src={SideBarLogo} />
 				<S.DividingLine />
 				<S.SideSubTitle>서비스</S.SideSubTitle>
-				<DropDown
-					list={[
-						{ value: '매드업', id: 1 },
-						{ value: '서비스 추가하기', id: 2 },
-					]}
-					isBig={true}
-				/>
+				<DropDown default="매드업" list={[{ value: '매드업' }, { value: '서비스 추가하기' }]} isBig={true} />
 				<S.SideSubTitle>광고 센터</S.SideSubTitle>
 				<MenuTab />
 			</S.Separation>
