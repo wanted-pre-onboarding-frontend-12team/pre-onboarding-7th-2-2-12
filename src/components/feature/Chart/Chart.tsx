@@ -22,6 +22,9 @@ const Chart = () => {
 		(data) =>
 			data.date >= dateToString(new Date(filterdate.startDate)) && data.date <= dateToString(new Date(filterdate.endDate)),
 	);
+	const newWorld = realData.map((el) => {
+		return { ...el, amount: (el.roas * el.cost) / 100 };
+	});
 
 	return (
 		<>
@@ -45,7 +48,7 @@ const Chart = () => {
 			</S.DropDownList>
 			<ResponsiveContainer width="100%" height={300}>
 				<LineChart
-					data={realData}
+					data={newWorld}
 					margin={{
 						top: 5,
 						right: 30,
