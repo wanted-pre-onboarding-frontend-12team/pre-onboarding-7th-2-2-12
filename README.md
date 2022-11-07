@@ -14,11 +14,11 @@
 
 1. 통합 광고 현황 대시보드 페이지
 
-- GIT 첨부해주세요.
+![dashboard](https://user-images.githubusercontent.com/50790145/200422451-e6fa1ceb-bf75-4770-ae9e-b57ad7c42a59.gif)
 
 2. 광고 관리 페이지
 
-- GIF 첨부해주세요.
+![ad_manager](https://user-images.githubusercontent.com/50790145/200422488-6f57fa9a-ce00-4620-aee3-e6495f9cff8f.gif)
 
 <br />
 
@@ -46,29 +46,29 @@ yarn run build
 
 ### 필수 구현 범위
 
-- [ ] `1. 사이드바`
+- [x] `1. 사이드바`
 
-  - [ ] 서비스 추가 버튼까지만, 실제 추가 기능은 구현 X
+  - [x] 서비스 추가 버튼까지만, 실제 추가 기능은 구현 X
 
-- [ ] `2. 대시보드`
+- [x] `2. 대시보드`
 
-  - [ ] 통합광고현황까지만 구현
+  - [x] 통합광고현황까지만 구현
 
-  - [ ] 매체현황은 구현 X
+  - [x] 매체현황은 구현 X
 
-- [ ] `3. 광고관리`
+- [x] `3. 광고관리`
 
-  - [ ] 광고 표시 및 수정하기까지만 구현
+  - [x] 광고 표시 및 수정하기까지만 구현
 
-    - [ ] 백엔드가 없으므로 수정한 데이터는 새로고침 시 초기화 되도 무방함
+    - [x] 백엔드가 없으므로 수정한 데이터는 새로고침 시 초기화 되도 무방함
 
-  - [ ] 광고만들기는 구현 X
+  - [x] 광고만들기는 구현 X
 
 ### 필수 요구 사항
 
 - [ ] 어떤 상태로 다른 페이지에 이동했다 하더라도, 다시 기존 페이지로 복귀 할 시 마지막 상태가 유지되어야 함 (필터링 상태 등)
 
-- [ ] 임의적으로 Fetch 타임을 만들어 로딩 시간 지연
+- [x] 임의적으로 Fetch 타임을 만들어 로딩 시간 지연
 
 <br />
 
@@ -87,7 +87,129 @@ yarn run build
 <br />
 
 ```jsx
-입력해주세요.
+📦src
+ ┣ 📂api
+ ┃ ┣ 📜myAds.ts
+ ┃ ┗ 📜trend.ts
+ ┣ 📂assets
+ ┃ ┗ 📂icons
+ ┃ ┃ ┣ 📜admanagement.svg
+ ┃ ┃ ┣ 📜alarm.svg
+ ┃ ┃ ┣ 📜arrow_down.svg
+ ┃ ┃ ┣ 📜blue_admanagement.svg
+ ┃ ┃ ┣ 📜blue_circle.svg
+ ┃ ┃ ┣ 📜blue_dashboard.svg
+ ┃ ┃ ┣ 📜bulb.svg
+ ┃ ┃ ┣ 📜dashboard.svg
+ ┃ ┃ ┣ 📜green_circle.svg
+ ┃ ┃ ┣ 📜green_down_triangle.svg
+ ┃ ┃ ┣ 📜index.ts
+ ┃ ┃ ┣ 📜logo.svg
+ ┃ ┃ ┣ 📜red_up_triangle.svg
+ ┃ ┃ ┣ 📜setting.svg
+ ┃ ┃ ┗ 📜user.svg
+ ┣ 📂components
+ ┃ ┣ 📂feature
+ ┃ ┃ ┣ 📂AdStatusItem
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂AdStatusList
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂Card
+ ┃ ┃ ┃ ┣ 📂CardInfo
+ ┃ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┃ ┣ 📂CardTitle
+ ┃ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂CardList
+ ┃ ┃ ┃ ┣ 📂Skeleton
+ ┃ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂Chart
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┗ 📂DatePicker
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📂Header
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂SideBar
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┣ 📂shared
+ ┃ ┃ ┣ 📂Button
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂DropDown
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂Guide
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂MenuTab
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂Select
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┣ 📂Title
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┃ ┗ 📂Typography
+ ┃ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┗ 📜index.ts
+ ┣ 📂constants
+ ┃ ┗ 📜dropDownDataList.ts
+ ┣ 📂contexts
+ ┃ ┗ 📜DatePickerStatusProvider.tsx
+ ┣ 📂hooks
+ ┃ ┣ 📜useDatePickerStatus.ts
+ ┃ ┣ 📜useDropdown.ts
+ ┃ ┣ 📜useOutsideClick.ts
+ ┃ ┗ 📜useTrendData.ts
+ ┣ 📂pages
+ ┃ ┣ 📂ADManagement
+ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┣ 📂DashBoard
+ ┃ ┃ ┣ 📜index.tsx
+ ┃ ┃ ┗ 📜styled.ts
+ ┃ ┣ 📂NotFound
+ ┃ ┃ ┗ 📜index.tsx
+ ┃ ┗ 📜index.ts
+ ┣ 📂router
+ ┃ ┣ 📜index.tsx
+ ┃ ┗ 📜routePath.ts
+ ┣ 📂styles
+ ┃ ┣ 📜GlobalStyle.tsx
+ ┃ ┣ 📜index.ts
+ ┃ ┣ 📜styled.d.ts
+ ┃ ┗ 📜theme.ts
+ ┣ 📂types
+ ┃ ┣ 📜advertise.ts
+ ┃ ┣ 📜media.ts
+ ┃ ┗ 📜trend.ts
+ ┣ 📂utils
+ ┃ ┣ 📜ArrayUtils.ts
+ ┃ ┣ 📜DateUtils.ts
+ ┃ ┣ 📜KPIUtils.ts
+ ┃ ┣ 📜NumberUtils.ts
+ ┃ ┣ 📜StorageUtils.ts
+ ┃ ┗ 📜index.ts
+ ┣ 📜App.tsx
+ ┣ 📜index.tsx
+ ┗ 📜vite-env.d.ts
 ```
 
 <br />
