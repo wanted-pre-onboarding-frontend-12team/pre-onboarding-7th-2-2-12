@@ -9,7 +9,7 @@ const Layout = (props: PropsWithChildren) => {
 			<S.ContentContainer>
 				<Header />
 				<Title />
-				{props.children}
+				<S.ContentWrapper>{props.children}</S.ContentWrapper>
 			</S.ContentContainer>
 		</S.GlobalContainer>
 	);
