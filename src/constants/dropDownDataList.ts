@@ -14,7 +14,7 @@ export const adList: ListType[] = [
 	{ id: 2, value: '광고비', name: 'cost' },
 	{ id: 3, value: '노출수', name: 'imp' },
 	{ id: 4, value: '클릭수', name: 'click' },
-	{ id: 5, value: '전환수', name: 'cov' },
+	{ id: 5, value: '전환수', name: 'conv' },
 	{ id: 6, value: '매출', name: 'amount' },
 	{ id: 7, value: '선택', name: 'option' },
 ];
