@@ -1,5 +1,6 @@
 import { AdStatusWrap } from './styled';
 import { numberWithCommasConverter } from '@src/utils/NumberUtils';
+import { TriangleDownGreenIcon, TriangleUpRedIcon } from '@src/assets/icons';
 
 type Props = {
 	sum: number;
@@ -15,11 +16,7 @@ export const Roas = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(Math.round(sum))}%</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.round(Math.abs(gap)))}%</p>
 			</div>
 		</AdStatusWrap>
@@ -34,11 +31,7 @@ export const Cost = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(sum)}원</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.abs(gap))}원</p>
 			</div>
 		</AdStatusWrap>
@@ -53,11 +46,7 @@ export const Imp = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(sum)}회</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.abs(gap))}회</p>
 			</div>
 		</AdStatusWrap>
@@ -72,11 +61,7 @@ export const Click = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(sum)}회</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.abs(gap))}회</p>
 			</div>
 		</AdStatusWrap>
@@ -91,11 +76,7 @@ export const Conv = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(sum)}회</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.abs(gap))}회</p>
 			</div>
 		</AdStatusWrap>
@@ -110,11 +91,7 @@ export const Revenue = ({ sum, exSum }: Props) => {
 				<span>{numberWithCommasConverter(Math.round(sum))}원</span>
 			</div>
 			<div className="compareDiv">
-				{sum - exSum > 0 ? (
-					<img src="/src/assets/images/up.png" alt=""></img>
-				) : (
-					<img src="/src/assets/images/down.png" alt=""></img>
-				)}
+				{sum - exSum > 0 ? <img src={TriangleUpRedIcon} alt=""></img> : <img src={TriangleDownGreenIcon} alt=""></img>}
 				<p>{numberWithCommasConverter(Math.round(Math.abs(gap)))}원</p>
 			</div>
 		</AdStatusWrap>

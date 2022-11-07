@@ -1,15 +1,13 @@
 import * as S from './styled';
-import alarm from '../../../assets/images/alarm.svg';
-import setting from '../../../assets/images/setting.svg';
-import userIcon from '../../../assets/images/userIcon.svg';
+import { AlarmIcon, SettingIcon, UserIcon } from '@src/assets/icons';
 
 const Header = () => {
 	return (
 		<S.HeaderWrap>
-			<S.AlarmIcon src={alarm} />
-			<S.SettingIcon src={setting} />
+			<S.AlarmIcon src={AlarmIcon} alt="알림 아이콘" />
+			<S.SettingIcon src={SettingIcon} alt="설정 아이콘" />
 			<S.ProfileWrap>
-				<S.ProfileIcon src={userIcon} />
+				<S.ProfileIcon src={UserIcon} alt="유저 아이콘" />
 			</S.ProfileWrap>
 			<S.UserName>원티드 님</S.UserName>
 		</S.HeaderWrap>

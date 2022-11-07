@@ -1,12 +1,10 @@
 import React, { useRef, PropsWithChildren } from 'react';
-import useDropdown from '@src/hooks/useDropdown';
-import UpArrow from '@src/assets/images/UpArrow.svg';
-import bluecircle from '@src/assets/images/bluecircle.svg';
-import greencircle from '@src/assets/images/greencircle.svg';
-import { ListType } from '../../../constants/dropDownDataList';
-import { useOutsideClick } from '@src/hooks/useOutsideClick';
 import * as S from './styled';
+import useDropdown from '@src/hooks/useDropdown';
+import { useOutsideClick } from '@src/hooks/useOutsideClick';
+import { ListType } from '@src/constants/dropDownDataList';
 import { getLocalStorage, setLocalStorage } from '@src/utils/StorageUtils';
+import { ArrowDownIcon, CircleBlueIcon, CircleGreenIcon } from '@src/assets/icons';
 
 type Props = {
 	isAd?: boolean;
@@ -37,9 +35,9 @@ const DropDown = (props: Props) => {
 	return (
 		<S.Container isBig={props.isBig} ref={clickRef}>
 			<S.SeletedData isBig={props.isBig} isBorder={props.isBorder} onClick={handleSelectBoxToggle}>
-				{props.isAd && (props.adColor === 'blue' ? <img src={bluecircle} /> : <img src={greencircle} />)}
+				<img src={props.isAd && props.adColor === 'blue' ? CircleBlueIcon : CircleGreenIcon} alt="" />
 				<p>{selectedItem}</p>
-				<img className="arrow" src={UpArrow} />
+				<img className="arrow" src={ArrowDownIcon} />
 			</S.SeletedData>
 			{isToggled && (
 				<S.DropData isBig={props.isBig}>

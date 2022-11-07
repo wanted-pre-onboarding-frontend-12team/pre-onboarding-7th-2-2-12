@@ -3,7 +3,7 @@ import { Select, Guide, MenuTab } from '@src/components';
 import * as S from './styled';
 import { theme } from '@src/styles';
 import { getLocalStorage, setLocalStorage } from '@src/utils/StorageUtils';
-import Logo from '@src/assets/images/logo.png';
+import { Logo } from '@src/assets/icons';
 
 const SideBar = () => {
 	const [selectedService, setSelectedService] = useState(getLocalStorage('service') ? getLocalStorage('service') : '');

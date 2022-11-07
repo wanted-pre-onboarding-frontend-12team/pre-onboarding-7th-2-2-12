@@ -1,0 +1,14 @@
+export { default as AdManagementIcon } from './admanagement.svg';
+export { default as AdManagementBlueIcon } from './blue_admanagement.svg';
+export { default as DashBoardIcon } from './dashboard.svg';
+export { default as DashBoardBlueIcon } from './blue_dashboard.svg';
+export { default as AlarmIcon } from './alarm.svg';
+export { default as BulbIcon } from './bulb.svg';
+export { default as SettingIcon } from './setting.svg';
+export { default as UserIcon } from './user.svg';
+export { default as ArrowDownIcon } from './arrow_down.svg';
+export { default as CircleBlueIcon } from './blue_circle.svg';
+export { default as CircleGreenIcon } from './green_circle.svg';
+export { default as TriangleDownGreenIcon } from './green_down_triangle.svg';
+export { default as TriangleUpRedIcon } from './red_up_triangle.svg';
+export { default as Logo } from './logo.svg';

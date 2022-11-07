@@ -1,5 +1,5 @@
 import * as S from './styled';
-import bulb from '../../../assets/images/bulb.svg';
+import { BulbIcon } from '@src/assets/icons';
 
 const Guide = () => {
 	const mainUrl = 'https://lever.me/';
@@ -9,7 +9,7 @@ const Guide = () => {
 		<S.GuideWrap>
 			<S.GuideBox href={mainUrl}>
 				<S.BulbIconWrap>
-					<S.BulbIcon src={bulb} />
+					<S.BulbIcon src={BulbIcon} alt="" />
 				</S.BulbIconWrap>
 				<S.GuideTextWrap>
 					<S.GuideTitle>레버 이용 가이드</S.GuideTitle>
