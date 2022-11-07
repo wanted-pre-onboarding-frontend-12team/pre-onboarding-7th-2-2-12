@@ -6,16 +6,15 @@ export const Container = styled.div<{ isBig?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	margin: 100px;
 `;
 
-export const SeletedData = styled.button<{ isBig?: boolean }>`
+export const SeletedData = styled.button<{ isBig?: boolean; isBorder?: boolean }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
+	border: ${({ isBorder, theme }) => (isBorder ? `1px solid ${theme.colors.gray[300]}` : 'none')};
 	background-color: ${({ theme }) => theme.colors.white};
 	border-radius: 10px;
 	padding: ${(props) => (props.isBig ? '0 26px 0 20px' : '0 16px 0 20px')};
@@ -33,12 +32,14 @@ export const DropData = styled.ul<{ isBig?: boolean }>`
 	display: flex;
 	flex-direction: column;
 	position: absolute;
+	z-index: 3;
 	top: ${(props) => (props.isBig ? '60px' : '40px')};
 	width: 100%;
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	font-weight: ${(props) => (props.isBig ? '700' : '500')};
 	border-radius: 10px;
 	cursor: pointer;
+	background-color: ${({ theme }) => theme.colors.white};
 	.data-list {
 		display: flex;
 		align-items: center;

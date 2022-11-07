@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Layout, Typography } from '@src/components';
 import DatePickers from '@src/components/DatePicker';
 import AdStatusList from '@src/components/feature/AdStatusList';
+import Chart from '@src/components/feature/Chart/Chart';
 
 const DashBoard = () => {
 	const [daily, setDaily] = useState(false);
@@ -13,6 +14,7 @@ const DashBoard = () => {
 			</Typography>
 			<DatePickers setDaily={setDaily} />
 			<AdStatusList daily={daily} />
+			<Chart />
 		</Layout>
 	);
 };
