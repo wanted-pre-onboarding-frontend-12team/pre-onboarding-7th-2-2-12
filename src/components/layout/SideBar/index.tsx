@@ -22,6 +22,7 @@ const SideBar = () => {
 				<S.LogoImg src={Logo} />
 				<S.DividingLine />
 				<S.SideSubTitle>서비스</S.SideSubTitle>
+
 				<Select
 					value={selectedService}
 					padding="20px"
@@ -33,6 +34,7 @@ const SideBar = () => {
 					<option value="">매드업</option>
 					<option value="join">서비스 추가하기</option>
 				</Select>
+
 				<S.SideSubTitle>광고 센터</S.SideSubTitle>
 				<MenuTab />
 			</S.Separation>

@@ -38,6 +38,7 @@ export const DropData = styled.ul<{ isBig?: boolean }>`
 	border: 1px solid ${({ theme }) => theme.colors.gray[300]};
 	font-weight: ${(props) => (props.isBig ? '700' : '500')};
 	border-radius: 10px;
+	background-color: ${({ theme }) => theme.colors.white};
 	cursor: pointer;
 	background-color: ${({ theme }) => theme.colors.white};
 	.data-list {
