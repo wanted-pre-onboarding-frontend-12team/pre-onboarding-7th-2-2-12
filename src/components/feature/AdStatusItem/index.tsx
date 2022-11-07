@@ -120,3 +120,5 @@ export const Revenue = ({ sum, exSum }: Props) => {
 		</AdStatusWrap>
 	);
 };
+
+export default { Roas, Cost, Imp, Click, Conv, Revenue };

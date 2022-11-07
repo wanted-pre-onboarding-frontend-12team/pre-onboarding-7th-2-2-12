@@ -7,7 +7,6 @@ import Typography from '@src/components/shared/Typography';
 import { theme } from '@src/styles';
 import { moneyExpressionConverter } from '@src/utils/NumberUtils';
 
-
 type Props = {
 	item: AdProgress;
 	data: AdProgress[];
@@ -134,7 +133,6 @@ const Card = ({ item, data, setData }: Props) => {
 						<Typography variant="span" fontWeight={700} fontSize={'12px'} lineHeight="14px" color={theme.colors.black}>
 							{moneyExpressionConverter(item.report.cost)}
 						</Typography>
-
 					)}
 				</S.BlockWrapper>
 				<S.Divider />

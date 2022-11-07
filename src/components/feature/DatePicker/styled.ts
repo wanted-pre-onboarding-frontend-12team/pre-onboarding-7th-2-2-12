@@ -3,9 +3,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const DatePickerWrap = styled.div`
-	position: absolute;
-	top: 95px;
-	right: 40px;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;

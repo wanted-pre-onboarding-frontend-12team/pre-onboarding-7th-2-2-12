@@ -1,22 +1,24 @@
 import * as S from './styled';
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
 import { ko } from 'date-fns/esm/locale';
 import { setLocalStorage, getLocalStorage } from '@src/utils/StorageUtils';
+import useDatePickerStatus from '@src/hooks/useDatePickerStatus';
+import { DatePickerStatusContextType } from '@src/contexts/DatePickerStatusProvider';
 
-type Props = {
-	setDaily: Dispatch<SetStateAction<boolean>>;
-};
-const DatePickers = ({ setDaily }: Props) => {
-	const startDate = new Date(getLocalStorage('FilterDate').startDate);
-	const endDate = new Date(getLocalStorage('FilterDate').endDate);
+const DatePickers = () => {
+	const startDate = new Date(getLocalStorage('dateFilter') ? getLocalStorage('dateFilter').startDate : '2022-04-10');
+	const endDate = new Date(getLocalStorage('dateFilter') ? getLocalStorage('dateFilter').endDate : '2022-04-14');
 	const [subStartDate, setSubStartDate] = useState(startDate);
 	const [subEndDateStr, setSubEndDateStr] = useState(endDate);
 	const isChanged = startDate.toString() !== subStartDate.toString() || endDate.toString() !== subEndDateStr.toString();
 
+	const { setDatePickerStatusState } = useDatePickerStatus() as DatePickerStatusContextType;
+
 	const changeDate = () => {
-		setDaily((prev) => !prev);
-		setLocalStorage('FilterDate', { startDate: subStartDate.toString(), endDate: subEndDateStr.toString() });
+		setLocalStorage('dateFilter', { startDate: subStartDate.toString(), endDate: subEndDateStr.toString() });
+		setDatePickerStatusState('update');
 	};
+
 	const initDate = () => {
 		setSubStartDate(startDate);
 		setSubEndDateStr(endDate);

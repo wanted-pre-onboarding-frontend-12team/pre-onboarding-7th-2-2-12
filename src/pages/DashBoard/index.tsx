@@ -1,12 +1,22 @@
-import { useState } from 'react';
-import { Layout, Typography } from '@src/components';
-import DatePickers from '@src/components/DatePicker';
-import AdStatusList from '@src/components/feature/AdStatusList';
-import Chart from '@src/components/feature/Chart/Chart';
+import { useEffect } from 'react';
+import { Layout, Typography, AdStatusList, Chart } from '@src/components/';
 import { DashBoardWrap } from './styled';
+import { DatePickerStatusContextType } from '@src/contexts/DatePickerStatusProvider';
+import useDatePickerStatus from '@src/hooks/useDatePickerStatus';
+import { getLocalStorage, setLocalStorage } from '@src/utils/StorageUtils';
 
 const DashBoard = () => {
-	const [daily, setDaily] = useState(false);
+	const { datePickerStatusState, setDatePickerStatusState } = useDatePickerStatus() as DatePickerStatusContextType;
+
+	useEffect(() => {
+		if (!getLocalStorage('chartFilter')) {
+			setLocalStorage('chartFilter', { chartFirstFilter: '선택', chartSecondFilter: '선택', chartPeriod: 'day' });
+		}
+		if (!getLocalStorage('dateFilter')) {
+			setLocalStorage('dateFilter', { startDate: '2022-04-10', endDate: '2022-04-14' });
+		}
+		setDatePickerStatusState('maintain');
+	}, [datePickerStatusState]);
 
 	return (
 		<Layout>
@@ -14,8 +24,7 @@ const DashBoard = () => {
 				통합 광고 현황
 			</Typography>
 			<DashBoardWrap>
-				<DatePickers setDaily={setDaily} />
-				<AdStatusList daily={daily} />
+				<AdStatusList datePickerStatus={datePickerStatusState} />
 				<Chart />
 			</DashBoardWrap>
 		</Layout>

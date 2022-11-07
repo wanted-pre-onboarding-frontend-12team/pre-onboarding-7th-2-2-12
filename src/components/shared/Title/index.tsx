@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import * as S from './styled';
+import { DatePicker } from '@src/components';
 
 const titleTable: { [key: string]: string } = {
 	'/': '대시보드',
@@ -12,7 +13,7 @@ const Title = () => {
 	return (
 		<S.TitleWrap>
 			<S.Title>{titleTable[locator.pathname]}</S.Title>
-			{locator.pathname === '/' ? null : null}
+			{locator.pathname === '/' && <DatePicker />}
 		</S.TitleWrap>
 	);
 };

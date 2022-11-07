@@ -6,7 +6,5 @@ export const AdStatusListWrap = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 20px;
-	width: 956px;
 	height: 180px;
-	margin: 40px;
 `;

@@ -6,13 +6,12 @@ import useTrendData from '@src/hooks/useTrendData';
 import getKPI from '@src/utils/KPIUtils';
 import { KPIRemoveDate } from '@src/utils/KPIUtils';
 import { dateToString } from '@src/utils/DateUtils';
+import { DatePickerStatus } from '@src/contexts/DatePickerStatusProvider';
 
-type Props = {
-	daily: boolean;
-};
-
-const AdStatusList = (daily: Props) => {
-	const { startDate, endDate } = getLocalStorage('FilterDate');
+const AdStatusList = ({ datePickerStatus }: { datePickerStatus: DatePickerStatus }) => {
+	const { startDate, endDate } = getLocalStorage('FilterDate')
+		? { startDate: getLocalStorage('FilterDate').startDate, endDate: getLocalStorage('FilterDate').endDate }
+		: { startDate: '2022-04-10', endDate: '2022-04-14' };
 	const { requestTrendData, trendData } = useTrendData();
 	const [kpiValue, setKpiValue] = useState<KPIRemoveDate[]>();
 
@@ -26,7 +25,7 @@ const AdStatusList = (daily: Props) => {
 			const res = getKPI(trendData, dateToString(new Date(startDate)), dateToString(new Date(endDate)));
 			setKpiValue(res);
 		}
-	}, [daily]);
+	}, [trendData, datePickerStatus]);
 
 	return (
 		<>
