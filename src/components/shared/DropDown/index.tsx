@@ -35,7 +35,7 @@ const DropDown = (props: Props) => {
 	return (
 		<S.Container isBig={props.isBig} ref={clickRef}>
 			<S.SeletedData isBig={props.isBig} isBorder={props.isBorder} onClick={handleSelectBoxToggle}>
-				<img src={props.isAd && props.adColor === 'blue' ? CircleBlueIcon : CircleGreenIcon} alt="" />
+				{props.isAd && <img src={props.adColor === 'blue' ? CircleBlueIcon : CircleGreenIcon} alt="" />}
 				<p>{selectedItem}</p>
 				<img className="arrow" src={ArrowDownIcon} />
 			</S.SeletedData>
