@@ -6,7 +6,7 @@ import { adList, dayWeekList } from '@src/constants/dropDownDataList';
 import * as S from './styled';
 import { dateToString } from '@src/utils/DateUtils';
 import { Trend } from '@src/types/trend';
-import { getTrendData } from '@src/api/trend_data';
+import { getTrendData } from '@src/api/trend';
 import { isValidArray } from '@src/utils/ArrayUtils';
 
 const Chart = () => {

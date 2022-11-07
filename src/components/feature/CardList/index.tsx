@@ -1,8 +1,8 @@
-import { getADProgress } from '@src/constants/api';
+import { useEffect, useState } from 'react';
+import { Card } from '@src/components';
+import { getMyAds } from '@src/api/myAds';
 import { AdProgress } from '@src/types/advertise';
 import { setLocalStorage } from '@src/utils/StorageUtils';
-import React, { useEffect, useState } from 'react';
-import Card from '../Card';
 import Skeleton from './Skeleton';
 import * as S from './styled';
 
@@ -16,8 +16,8 @@ const CardList = ({ status }: Props) => {
 
 	useEffect(() => {
 		setLoading(true);
-		setTimeout(() => {
-			let response = getADProgress() as AdProgress[];
+		setTimeout(async () => {
+			let response = (await getMyAds()) as AdProgress[];
 			if (status === 'active') {
 				response = response.filter((item: AdProgress) => item.status === 'active');
 				setData(response);

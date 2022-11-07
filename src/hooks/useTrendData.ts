@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getTrendData } from '@src/api/trend_data';
+import { getTrendData } from '@src/api/trend';
 import { Trend } from '@src/types/trend';
 
 const useTrendData = () => {
