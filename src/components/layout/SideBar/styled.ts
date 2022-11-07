@@ -5,7 +5,6 @@ export const SideBarWrap = styled.nav`
 	flex-direction: column;
 	justify-content: space-between;
 	width: 320px;
-	height: 100vh;
 	padding: 60px 40px;
 	background-color: ${({ theme }) => theme.colors.white};
 `;

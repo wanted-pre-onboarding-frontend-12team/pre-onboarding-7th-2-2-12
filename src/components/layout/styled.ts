@@ -8,4 +8,5 @@ export const GlobalContainer = styled.div`
 export const ContentContainer = styled.main`
 	flex: 1;
 	padding: 0 40px;
+	background-color: ${({ theme }) => theme.colors.gray[100]};
 `;
